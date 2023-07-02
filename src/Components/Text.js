@@ -110,8 +110,7 @@ export default function Text(props) {
       <div className="container" style={{color:props.mode==='dark'?'white':'#031660'}}>
         <h2>Your text details</h2>
         <p>
-          {" "}
-          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes</p> 
         <h2>Preview</h2>
