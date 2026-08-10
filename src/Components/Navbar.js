@@ -1,51 +1,29 @@
-import React from "react";
+import React from 'react';
 
-export default function Navbar(props) {
+export default function Navbar({ mode, replaceMode }) {
+  const isDark = mode === 'dark';
+
   return (
-    <div>
-    <nav
-      className="navbar navbar-expand-lg bg-dark text-light navbar-dark"
-      // className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}
-    >
-      <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-          {props.title}
+    <header className="site-header">
+      <nav className="site-nav" aria-label="Main navigation">
+        <a className="brand" href="/" aria-label="TextCraft home">
+          <span className="brand__mark">T</span>
+          <span>Text<span className="brand__accent">Craft</span></span>
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
-                Home
-              </a>
-            </li>
-          </ul>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              onClick={props.replacemode}
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
-            {/* <label className={`form-check-label text-${props.mode==='light'?'dark':'light'}`} htmlFor="flexSwitchCheckDefault"> */}
-            <label className="form-check-label text-light" htmlFor="flexSwitchCheckDefault">
-              Enable Darkmode
-            </label>
-          </div>
+        <div className="site-nav__actions">
+          <span className="site-nav__hint">Write with clarity</span>
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={replaceMode}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            aria-pressed={isDark}
+          >
+            <span className="theme-toggle__icon" aria-hidden="true">{isDark ? '☀' : '☾'}</span>
+            <span>{isDark ? 'Light' : 'Dark'}</span>
+          </button>
         </div>
-      </div>
-    </nav>
-    </div>
+      </nav>
+    </header>
   );
 }

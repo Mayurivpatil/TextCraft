@@ -1,121 +1,120 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from 'react';
 
-export default function Text(props) {
-  const handleupcase = () => {
-    let newtext = text.toUpperCase();
-    setText(newtext);
-    props.showalert("Converted to Uppercase","Success");
+const getWordCount = (value) => value.trim() ? value.trim().split(/\s+/).length : 0;
+
+export default function Text() {
+  const [text, setText] = useState('');
+  const words = useMemo(() => getWordCount(text), [text]);
+  const readingTime = Math.max(1, Math.ceil(words / 200));
+  const hasText = text.length > 0;
+
+  const updateText = (nextText) => {
+    setText(nextText);
   };
 
-  const handlelocase = () => {
-    let newtext = text.toLowerCase();
-    setText(newtext);
-    props.showalert("Converted to Lowercase","Success");
+  const actions = [
+    { label: 'UPPERCASE', onClick: () => updateText(text.toUpperCase()) },
+    { label: 'lowercase', onClick: () => updateText(text.toLowerCase()) },
+    {
+      label: 'Capitalize',
+      onClick: () => updateText(
+        text.replace(/\b\w/g, (character) => character.toUpperCase())
+      ),
+    },
+    { label: 'Reverse', onClick: () => updateText([...text].reverse().join('')) },
+    {
+      label: 'Clean spaces',
+      onClick: () => updateText(text.replace(/\s+/g, ' ').trim()),
+    },
+    {
+      label: 'Remove whitespace',
+      onClick: () => updateText(text.replace(/\s/g, '')),
+    },
+  ];
+
+  const copyText = async () => {
+    await navigator.clipboard.writeText(text);
   };
 
-  const handleCapitalize = () => {
-    let newText = text
-      .split(" ")
-      .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
-      .join(" ");
-    setText(newText);
-     props.showalert("Text capitalized!","Success");
-  };
-
-  const handleReverse = (event) => {
-    /* Convert string to array*/
-    let strArr = text.split("");
-    /* Reverse array*/
-    strArr = strArr.reverse();
-    /* Convert array to string*/
-    let newText = strArr.join("");
-    setText(newText);
-    props.showalert("Text reversed!","Success");
-  };
-
-  const WhiteSpace = () => {
-    let updated_text = text.replace(/\s/g, "");
-    setText(updated_text);
-    props.showalert("Whitespaces removed!","Success");
-  };
-
-  const handleExtraSpaces = () => {
-    let words = text.split(" ");
-    let joinedWords = "";
-    // console.log(words);
-    words.forEach((elem) => {
-      if (elem[0] !== undefined) {
-        joinedWords += elem + " ";
-        console.log(joinedWords);
-      }
-    });
-    setText(joinedWords);
-    props.showalert("Extra spaces removed!","Success");
-  };
-
-  const copyText = () => {
-    navigator.clipboard.writeText(text);
-    props.showalert("Copied to clickboard!","Success");
-   };
-
-  const handlechange = (event) => {
-    console.log("On changed");
-    setText(event.target.value);
-  };
-
-  const [text, setText] = useState(" ");
   return (
-    <div>
-      <div className="container" style={{color:props.mode==='dark'?'white':'#031660'}}>
-        <h1 className='mb-14'>{props.heading}</h1>
-        <h4>Enter your text :</h4>
-        <textarea
-          className="form-control"
-          onChange={handlechange}
-          style={{backgroundColor:props.mode==='dark'?'#7c91b7':'white',color:props.mode==='dark'?'white':'black'}}
-          id="textform"
-          rows="8"
-          value={text}
-        ></textarea>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={handleupcase}>
-          Convert to Uppercase
-        </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={handlelocase}>
-          Convert to Lowercase
-        </button>
-        <button
-          disabled={text.length===0}
-          className="btn btn-primary mx-2 my-3"
-          onClick={handleCapitalize}
-        >
-          Capitalise the text
-        </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={handleReverse}>
-          Reverse text
-        </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={WhiteSpace}>
-          Remove Whitespaces
-        </button>
-        <button
-          disabled={text.length===0}
-          className="btn btn-primary mx-2 my-3"
-          onClick={handleExtraSpaces}
-        >
-          Remove Extra Spaces
-        </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={copyText}>
-          Copy the text
-        </button>
-      </div>
-      <div className="container" style={{color:props.mode==='dark'?'white':'#031660'}}>
-        <h2>Your text details</h2>
-        <p>
-          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
+    <div className="workspace">
+      <section className="hero">
+        <p className="eyebrow">A BETTER WAY TO EDIT</p>
+        <h1>Shape every word<br /><span>with intention.</span></h1>
+        <p className="hero__description">
+          A focused workspace for refining text, finding its rhythm, and sharing polished copy.
         </p>
-        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes</p> 
-        <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter the something in the textbox for preview"}</p>
-      </div>
+      </section>
+
+      <section className="editor-card" aria-labelledby="editor-title">
+        <div className="editor-card__header">
+          <div>
+            <p className="section-kicker">TEXT EDITOR</p>
+            <h2 id="editor-title">Your draft</h2>
+          </div>
+          <button className="clear-button" type="button" onClick={() => updateText('')} disabled={!hasText}>
+            Clear all
+          </button>
+        </div>
+        <label className="sr-only" htmlFor="textform">Enter text to edit</label>
+        <textarea
+          className="text-area"
+          id="textform"
+          rows="10"
+          value={text}
+          onChange={(event) => setText(event.target.value)}
+          placeholder="Start typing or paste your text here..."
+        />
+        <div className="editor-card__footer">
+          <span>{text.length.toLocaleString()} characters</span>
+          <span className="editor-card__shortcut">⌘ + V to paste</span>
+        </div>
+      </section>
+
+      <section className="tool-panel" aria-label="Text transformations">
+        <div className="tool-panel__heading">
+          <p className="section-kicker">QUICK ACTIONS</p>
+          <span>Transform your text in one click</span>
+        </div>
+        <div className="action-list">
+          {actions.map((action) => (
+            <button key={action.label} className="action-button" type="button" onClick={action.onClick} disabled={!hasText}>
+              {action.label}
+            </button>
+          ))}
+          <button className="copy-button" type="button" onClick={copyText} disabled={!hasText}>
+            <span aria-hidden="true">⧉</span> Copy text
+          </button>
+        </div>
+      </section>
+
+      <section className="insights" aria-labelledby="insights-title">
+        <div className="insights__heading">
+          <p className="section-kicker">LIVE INSIGHTS</p>
+          <h2 id="insights-title">Text at a glance</h2>
+        </div>
+        <div className="stat-grid">
+          <article className="stat-card">
+            <strong>{words.toLocaleString()}</strong>
+            <span>Words</span>
+          </article>
+          <article className="stat-card">
+            <strong>{text.length.toLocaleString()}</strong>
+            <span>Characters</span>
+          </article>
+          <article className="stat-card">
+            <strong>{words ? `${readingTime} min` : '—'}</strong>
+            <span>Reading time</span>
+          </article>
+        </div>
+        <article className="preview-card">
+          <div className="preview-card__top">
+            <h3>Preview</h3>
+            <span>{hasText ? 'LIVE' : 'WAITING FOR TEXT'}</span>
+          </div>
+          <p>{hasText ? text : 'Your formatted text will appear here as you write.'}</p>
+        </article>
+      </section>
     </div>
   );
 }
