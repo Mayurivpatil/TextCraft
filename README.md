@@ -1,40 +1,44 @@
-# TextUtils
+# TextCraft
 
-TextUtils is a React-based text utility app for quick text transformations and analysis. It helps users edit text, clean spacing, copy results, and view basic reading stats in a simple interface with dark mode support.
+TextCraft is a React text utility application for formatting, transforming, and analyzing text in real time. It provides a focused editor with a polished responsive interface and light/dark theme support.
 
 ## Features
 
-- Convert text to uppercase
-- Convert text to lowercase
-- Capitalize text
+- Convert text to uppercase and lowercase
+- Capitalize words
 - Reverse text
-- Remove all whitespaces
-- Remove extra spaces
-- Copy text to the clipboard
-- View word count, character count, and estimated reading time
-- Toggle between light and dark mode
+- Clean extra spaces or remove all whitespace
+- Copy transformed text to the clipboard
+- View live word count, character count, and estimated reading time
+- Preview edited text as you type
+- Switch between light and dark themes
 
 ## Tech Stack
 
 - React 18
+- JavaScript
+- Bootstrap 5.3.3
+- Custom CSS
 - Create React App
-- Bootstrap 5
-- Firebase Hosting configuration
 
 ## Project Structure
 
 ```text
 src/
   Components/
-    Alert.js
     Navbar.js
     Text.js
   App.js
   App.css
+  App.test.js
   index.js
+  index.css
+  setupTests.js
 public/
+  favicon.svg
   index.html
-firebase.json
+  manifest.json
+  robots.txt
 ```
 
 ## Getting Started
@@ -62,11 +66,11 @@ Open `http://localhost:3000` in your browser.
 
 ### `npm start`
 
-Runs the app in development mode.
+Runs the application in development mode.
 
 ### `npm run build`
 
-Builds the app for production in the `build` folder.
+Creates an optimized production build in the `build` directory.
 
 ### `npm test`
 
@@ -74,15 +78,4 @@ Runs the test suite.
 
 ## Deployment
 
-This project includes Firebase Hosting configuration with the production build served from the `build` directory.
-
-## Use Cases
-
-- Clean and format text before sharing
-- Quickly analyze word and character counts
-- Remove unwanted spacing from copied content
-- Prepare text for notes, assignments, or social posts
-
-## Author
-
-Mayuri V Patil
+Create a production build with `npm run build`, then deploy the generated `build` directory to your preferred static hosting provider.

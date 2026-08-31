@@ -12,10 +12,10 @@ function App() {
   };
 
   return (
-    <div className={`app app--${mode}`}>
+    <div className={`app app--${mode}`} data-bs-theme={mode}>
       <Navbar mode={mode} replaceMode={replaceMode} />
       <main className="app__main">
-        <Text mode={mode} />
+        <Text />
       </main>
     </div>
   );
