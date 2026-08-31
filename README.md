@@ -51,11 +51,3 @@ Runs the application in development mode.
 ### `npm run build`
 
 Creates an optimized production build in the `build` directory.
-
-### `npm test`
-
-Runs the test suite.
-
-## Deployment
-
-Create a production build with `npm run build`, then deploy the generated `build` directory to your preferred static hosting provider.
