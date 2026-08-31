@@ -1,27 +1,29 @@
 # TextCraft
 
-TextCraft is a React text utility application for formatting, transforming, and analyzing text in real time. It provides a focused editor with a polished responsive interface and light/dark theme support.
+> **Text Analyzer & Modifier**
 
-## Features
+TextCraft is a **React text utility application** for formatting, transforming, and analyzing text in real time. It provides a focused editor with a polished responsive interface and **light/dark theme support**.
 
-- Convert text to uppercase and lowercase
-- Capitalize words
-- Reverse text
-- Clean extra spaces or remove all whitespace
-- Copy transformed text to the clipboard
-- View live word count, character count, and estimated reading time
-- Preview edited text as you type
-- Switch between light and dark themes
+## ✨ Features
 
-## Tech Stack
+- 🔤 Convert text to uppercase and lowercase
+- ✍️ Capitalize words
+- 🔄 Reverse text
+- 🧹 Clean extra spaces or remove all whitespace
+- 📋 Copy transformed text to the clipboard
+- 📊 View live word count, character count, and estimated reading time
+- 👁️ Preview edited text as you type
+- 🌙 Switch between light and dark themes
 
-- React 18
-- JavaScript
-- Bootstrap 5.3.3
-- Custom CSS
-- Create React App
+## 🛠️ Tech Stack
 
-## Project Structure
+- ⚛️ **React 18**
+- 🟨 **JavaScript**
+- 🅱️ **Bootstrap 5.3.3**
+- 🎨 **Custom CSS**
+- ⚙️ **Create React App**
+
+## 📁 Project Structure
 
 ```text
 src/
@@ -41,20 +43,20 @@ public/
   robots.txt
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### 📋 Prerequisites
 
 - Node.js
 - npm
 
-### Installation
+### 📦 Installation
 
 ```bash
 npm install
 ```
 
-### Run Locally
+### 💻 Run Locally
 
 ```bash
 npm start
@@ -62,20 +64,20 @@ npm start
 
 Open `http://localhost:3000` in your browser.
 
-## Available Scripts
+## 📜 Available Scripts
 
-### `npm start`
+### ▶️ `npm start`
 
 Runs the application in development mode.
 
-### `npm run build`
+### 🏗️ `npm run build`
 
 Creates an optimized production build in the `build` directory.
 
-### `npm test`
+### ✅ `npm test`
 
 Runs the test suite.
 
-## Deployment
+## 🌐 Deployment
 
 Create a production build with `npm run build`, then deploy the generated `build` directory to your preferred static hosting provider.
