@@ -21,26 +21,6 @@ TextCraft is a React text utility application for formatting, transforming, and 
 - Custom CSS
 - Create React App
 
-## Project Structure
-
-```text
-src/
-  Components/
-    Navbar.js
-    Text.js
-  App.js
-  App.css
-  App.test.js
-  index.js
-  index.css
-  setupTests.js
-public/
-  favicon.svg
-  index.html
-  manifest.json
-  robots.txt
-```
-
 ## Getting Started
 
 ### Prerequisites
