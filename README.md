@@ -42,6 +42,8 @@ index.html
 vite.config.js
 ```
 
+=======
+
 ## 🚀 Getting Started
 
 ### 📋 Prerequisites
@@ -79,4 +81,6 @@ Creates an optimized production build in the `dist` directory.
 
 ## 🌐 Deployment
 
-Create a production build with `npm run build`, then deploy the generated `dist` directory to your preferred static hosting provider.
+# Create a production build with `npm run build`, then deploy the generated `dist` directory to your preferred static hosting provider.
+
+Creates an optimized production build in the `build` directory.
