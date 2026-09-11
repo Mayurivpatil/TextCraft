@@ -21,33 +21,32 @@ TextCraft is a **React text utility application** for formatting, transforming, 
 - 🟨 **JavaScript**
 - 🅱️ **Bootstrap 5.3.3**
 - 🎨 **Custom CSS**
-- ⚙️ **Create React App**
+- ⚡ **Vite**
 
 ## 📁 Project Structure
 
 ```text
 src/
   Components/
-    Navbar.js
-    Text.js
-  App.js
+    Navbar.jsx
+    Text.jsx
+  App.jsx
   App.css
-  App.test.js
-  index.js
   index.css
-  setupTests.js
+  main.jsx
 public/
   favicon.svg
-  index.html
   manifest.json
   robots.txt
+index.html
+vite.config.js
 ```
 
 ## 🚀 Getting Started
 
 ### 📋 Prerequisites
 
-- Node.js
+- Node.js 20.19+ or 22.12+
 - npm
 
 ### 📦 Installation
@@ -62,22 +61,22 @@ npm install
 npm start
 ```
 
-Open `http://localhost:3000` in your browser.
+Open `http://localhost:5173` in your browser.
 
 ## 📜 Available Scripts
 
 ### ▶️ `npm start`
 
-Runs the application in development mode.
+Runs the Vite development server.
+
+### ▶️ `npm run dev`
+
+Runs the Vite development server.
 
 ### 🏗️ `npm run build`
 
-Creates an optimized production build in the `build` directory.
-
-### ✅ `npm test`
-
-Runs the test suite.
+Creates an optimized production build in the `dist` directory.
 
 ## 🌐 Deployment
 
-Create a production build with `npm run build`, then deploy the generated `build` directory to your preferred static hosting provider.
+Create a production build with `npm run build`, then deploy the generated `dist` directory to your preferred static hosting provider.
