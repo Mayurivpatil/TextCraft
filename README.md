@@ -11,7 +11,7 @@ TextCraft is a **React text utility application** for formatting, transforming, 
 - 🔄 Reverse text
 - 🧹 Clean extra spaces or remove all whitespace
 - 📋 Copy transformed text to the clipboard
-- 📊 View live word count, character count, and estimated reading time
+- 📊 View live word count, non-whitespace character count, and estimated reading time
 - 👁️ Preview edited text as you type
 - 🌙 Switch between light and dark themes
 
@@ -19,7 +19,7 @@ TextCraft is a **React text utility application** for formatting, transforming, 
 
 - ⚛️ **React 18**
 - 🟨 **JavaScript**
-- 🅱️ **Bootstrap 5.3.3**
+- 🅱️ **Bootstrap 5.3.8**
 - 🎨 **Custom CSS**
 - ⚡ **Vite**
 
